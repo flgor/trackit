@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("io.trackit")
 @EnableJpaRepositories(basePackages = "io.trackit.repository")
 public class Application {
+	//Test
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
