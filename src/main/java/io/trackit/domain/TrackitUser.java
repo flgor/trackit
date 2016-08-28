@@ -1,6 +1,7 @@
 package io.trackit.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class TrackitUser {
@@ -13,6 +14,9 @@ public class TrackitUser {
     private String userName;
 
     private String email;
+
+    @OneToMany(mappedBy = "trackitUser", cascade = CascadeType.REMOVE)
+    private Set<UrlConfig> urlConfigs;
 
     public Long getId() {
         return id;
