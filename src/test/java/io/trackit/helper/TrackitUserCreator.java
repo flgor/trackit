@@ -15,9 +15,9 @@ public class TrackitUserCreator {
     }
 
     public TrackitUser create() {
-        TrackitUser user = new TrackitUser();
-        user.setUserName(userName);
-        return trackitUserRepository.saveAndFlush(user);
+        TrackitUser trackitUser = new TrackitUser();
+        trackitUser.setUserName(userName);
+        return trackitUserRepository.saveAndFlush(trackitUser);
     }
 
 

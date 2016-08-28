@@ -13,13 +13,15 @@ public class TrackitUserRepositoryIntegrationTests extends ApplicationTests {
 
     public static final String USER_NAME = "testUserName";
 
+    protected TrackitUser trackitUser;
+
     @Autowired
     private TrackitUserRepository trackitUserRepository;
 
     @Before
     public void setUp() throws Exception {
         trackitUserRepository.deleteAll();
-        new TrackitUserCreator(USER_NAME, trackitUserRepository).create();
+        trackitUser = new TrackitUserCreator(USER_NAME, trackitUserRepository).create();
     }
 
     @Test
