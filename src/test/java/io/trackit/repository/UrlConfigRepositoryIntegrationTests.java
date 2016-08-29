@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,15 +24,23 @@ public class UrlConfigRepositoryIntegrationTests extends TrackitUserRepositoryIn
     public void setUp() throws Exception {
         urlConfigRepository.deleteAll();
         super.setUp();
-        new UrlConfigCreator(trackitUser, TEST_URL, urlConfigRepository).create();
     }
 
     @Test
     public void getUrlConfigByUser() {
+        new UrlConfigCreator(trackitUser, TEST_URL, urlConfigRepository).create();
+
         List<UrlConfig> urlConfigs = urlConfigRepository.findByTrackitUser(trackitUser);
         assertThat(urlConfigs).hasSize(1);
 
         UrlConfig urlConfig = Iterables.getOnlyElement(urlConfigs);
         assertThat(urlConfig.getUrl()).isEqualTo(TEST_URL);
+    }
+
+    @Test(expected = ConstraintViolationException.class)
+    public void createUrlCOnfigWithNoUser() {
+        UrlConfig urlConfig = new UrlConfig();
+        urlConfig.setUrl(TEST_URL);
+        urlConfigRepository.save(urlConfig);
     }
 }

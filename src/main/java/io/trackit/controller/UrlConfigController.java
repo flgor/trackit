@@ -1,5 +1,6 @@
 package io.trackit.controller;
 
+import io.trackit.domain.TrackitUser;
 import io.trackit.domain.UrlConfig;
 import io.trackit.dto.CreateUrlConfigDto;
 import io.trackit.repository.UrlConfigRepository;
@@ -19,8 +20,12 @@ public class UrlConfigController {
     @PostMapping
     public void createTrackitUser(@RequestBody CreateUrlConfigDto createUrlConfigDto){
         UrlConfig urlConfig = new UrlConfig();
-        urlConfig.setTrackitUser(createUrlConfigDto.getTrackitUser());
+
         urlConfig.setUrl(createUrlConfigDto.getUrl());
+        TrackitUser trackitUser = new TrackitUser();
+        trackitUser.setId(createUrlConfigDto.getTrackitUserId());
+        urlConfig.setTrackitUser(trackitUser);
+
         urlConfigRepository.save(urlConfig);
     }
 }

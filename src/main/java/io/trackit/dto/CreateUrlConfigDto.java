@@ -1,10 +1,8 @@
 package io.trackit.dto;
 
-import io.trackit.domain.TrackitUser;
-
 public class CreateUrlConfigDto {
     private String url;
-    private TrackitUser trackitUser;
+    private Long trackitUserId;
 
     public String getUrl() {
         return url;
@@ -14,11 +12,11 @@ public class CreateUrlConfigDto {
         this.url = url;
     }
 
-    public TrackitUser getTrackitUser() {
-        return trackitUser;
+    public Long getTrackitUserId() {
+        return trackitUserId;
     }
 
-    public void setTrackitUser(TrackitUser trackitUser) {
-        this.trackitUser = trackitUser;
+    public void setTrackitUserId(Long trackitUserId) {
+        this.trackitUserId = trackitUserId;
     }
 }
