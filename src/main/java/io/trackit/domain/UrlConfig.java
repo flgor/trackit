@@ -1,6 +1,7 @@
 package io.trackit.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class UrlConfig {
@@ -12,6 +13,7 @@ public class UrlConfig {
     private String url;
 
     @ManyToOne
+    @NotNull
     private TrackitUser trackitUser;
 
     public int getId() {
