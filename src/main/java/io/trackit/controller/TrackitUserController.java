@@ -26,4 +26,5 @@ public class TrackitUserController {
         trackitUser.setUserName(createTrackitUserDto.getUserName());
         trackitUserRepository.save(trackitUser);
     }
+    //https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc
 }
