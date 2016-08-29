@@ -38,7 +38,7 @@ public class UrlConfigRepositoryIntegrationTests extends TrackitUserRepositoryIn
     }
 
     @Test(expected = ConstraintViolationException.class)
-    public void createUrlCOnfigWithNoUser() {
+    public void createUrlConfigWithNoUser() {
         UrlConfig urlConfig = new UrlConfig();
         urlConfig.setUrl(TEST_URL);
         urlConfigRepository.save(urlConfig);
