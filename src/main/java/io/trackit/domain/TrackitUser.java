@@ -41,4 +41,12 @@ public class TrackitUser {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Set<UrlConfig> getUrlConfigs() {
+        return urlConfigs;
+    }
+
+    public void setUrlConfigs(Set<UrlConfig> urlConfigs) {
+        this.urlConfigs = urlConfigs;
+    }
 }
