@@ -1,4 +1,4 @@
-package io.trackit.controller;
+package io.trackit.controller.rest;
 
 import com.google.common.collect.Iterables;
 import io.trackit.ApplicationTests;

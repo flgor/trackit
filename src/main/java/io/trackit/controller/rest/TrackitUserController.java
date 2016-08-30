@@ -1,4 +1,4 @@
-package io.trackit.controller;
+package io.trackit.controller.rest;
 
 
 import io.trackit.domain.TrackitUser;
