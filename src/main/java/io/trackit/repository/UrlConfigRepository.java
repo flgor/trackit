@@ -10,5 +10,4 @@ import java.util.List;
 @Repository
 public interface UrlConfigRepository extends JpaRepository<UrlConfig, Long> {
     List<UrlConfig> findByTrackitUser(TrackitUser trackitUser);
-
 }

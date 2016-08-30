@@ -7,6 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TrackitUserRepository extends JpaRepository<TrackitUser, Long> {
     TrackitUser findByUserName(String userName);
-
     TrackitUser findById(Long id);
 }

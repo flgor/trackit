@@ -28,5 +28,4 @@ public class UrlConfigViewController extends WebMvcConfigurerAdapter {
         modelMap.addAttribute("urlConfigs", urlConfigs);
         return "urlconfig_view";
     }
-
 }
