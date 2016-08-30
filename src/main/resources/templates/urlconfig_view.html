@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"></meta>
     <title>UrlConfigView</title>
 </head>
 <body>
-<tbody>
-<tr th:each="urlConfig : ${urlConfigs}">
-    <td th:text="${customer.url}">url</td>
-</tr>
-</tbody>
+<table>
+    <tr th:each="urlConfig : ${urlConfigs}">
+        <td th:text="${urlConfig.url}">url</td>
+    </tr>
+</table>
 </body>
 </html>
