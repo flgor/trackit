@@ -12,6 +12,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 public class TrackitUserRepositoryIntegrationTests extends ApplicationTests {
 
     public static final String USER_NAME = "testUserName";
+    public static final String PASSWORD = "password";
 
     protected TrackitUser trackitUser;
 
@@ -21,11 +22,11 @@ public class TrackitUserRepositoryIntegrationTests extends ApplicationTests {
     @Before
     public void setUp() throws Exception {
         trackitUserRepository.deleteAll();
-        trackitUser = new TrackitUserCreator(USER_NAME, trackitUserRepository).create();
+        trackitUser = new TrackitUserCreator(USER_NAME, PASSWORD, trackitUserRepository).create();
     }
 
     @Test
-    public void getUserByEmail() {
+    public void getUserByName() {
         TrackitUser user = trackitUserRepository.findByUserName(USER_NAME);
         assertThat(user.getUserName()).isEqualTo(USER_NAME);
     }

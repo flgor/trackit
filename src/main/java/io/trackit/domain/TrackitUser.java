@@ -1,6 +1,7 @@
 package io.trackit.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -14,6 +15,17 @@ public class TrackitUser {
     private String userName;
 
     private String email;
+
+    @Size(min = 4, max = 20)
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @OneToMany(mappedBy = "trackitUser", cascade = CascadeType.REMOVE)
     private Set<UrlConfig> urlConfigs;
