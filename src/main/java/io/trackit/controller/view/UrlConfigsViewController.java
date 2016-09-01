@@ -15,7 +15,6 @@ public class UrlConfigsViewController extends WebMvcConfigurerAdapter {
     @Autowired
     TrackitUserRepository trackitUserRepository;
 
-    @RequestMapping(method = RequestMethod.GET)
     @GetMapping
     public String configsView(@RequestParam(name = "userId") Long userId, ModelMap modelMap) {
         TrackitUser trackitUser = trackitUserRepository.findById(userId);
