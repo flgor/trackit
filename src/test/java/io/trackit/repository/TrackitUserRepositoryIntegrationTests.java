@@ -29,5 +29,6 @@ public class TrackitUserRepositoryIntegrationTests extends ApplicationTests {
     public void getUserByName() {
         TrackitUser user = trackitUserRepository.findByUserName(USER_NAME);
         assertThat(user.getUserName()).isEqualTo(USER_NAME);
+        assertThat(user.getPassword()).isEqualTo(PASSWORD);
     }
 }
