@@ -29,7 +29,7 @@ public class UrlConfigsViewControllerIntegrationTests extends ApplicationTests {
 
     @Test
     public void getUrlConfigsView() throws Exception {
-        ResponseEntity<String> response = testRestTemplate.getForEntity("http://localhost:8080//view/configs?userId=" + trackitUser.getId(), String.class);
+        ResponseEntity<String> response = testRestTemplate.getForEntity("http://localhost:8080/view/configs?userId=" + trackitUser.getId(), String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 }

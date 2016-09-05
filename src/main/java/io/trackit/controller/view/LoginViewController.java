@@ -12,13 +12,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Controller
 @RequestMapping("/view/login")
-public class LoginViewController extends WebMvcConfigurerAdapter{
+public class LoginViewController {
 
     @Autowired
     TrackitUserRepository trackitUserRepository;
 
     @GetMapping
-    public String displayLoginPage(Model model){
+    public String displayLoginPage(Model model) {
         CreateTrackitUserDto createTrackitUserDto = new CreateTrackitUserDto();
         model.addAttribute("createTrackitUserDto", createTrackitUserDto);
         return "login";
@@ -26,8 +26,8 @@ public class LoginViewController extends WebMvcConfigurerAdapter{
 
     @PostMapping
     @GetMapping
-    public String login (@ModelAttribute CreateTrackitUserDto createTrackitUserDto, ModelMap modelMap){
+    public String login(@ModelAttribute CreateTrackitUserDto createTrackitUserDto, ModelMap modelMap) {
         TrackitUser trackitUser = trackitUserRepository.findByUserName(createTrackitUserDto.getUserName());
-        return "redirect:/view/configs?userId="+trackitUser.getId();
+        return "redirect:/view/configs?userId=" + trackitUser.getId();
     }
 }
