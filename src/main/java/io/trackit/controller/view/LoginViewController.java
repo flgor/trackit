@@ -2,6 +2,7 @@ package io.trackit.controller.view;
 
 import io.trackit.domain.TrackitUser;
 import io.trackit.dto.CreateTrackitUserDto;
+import io.trackit.dto.LoginDto;
 import io.trackit.repository.TrackitUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,15 +20,14 @@ public class LoginViewController {
 
     @GetMapping
     public String displayLoginPage(Model model) {
-        CreateTrackitUserDto createTrackitUserDto = new CreateTrackitUserDto();
-        model.addAttribute("createTrackitUserDto", createTrackitUserDto);
+        model.addAttribute("loginDto", new LoginDto());
         return "login";
     }
 
     @PostMapping
     @GetMapping
-    public String login(@ModelAttribute CreateTrackitUserDto createTrackitUserDto, ModelMap modelMap) {
-        TrackitUser trackitUser = trackitUserRepository.findByUserName(createTrackitUserDto.getUserName());
+    public String login(@ModelAttribute LoginDto loginDto, ModelMap modelMap) {
+        TrackitUser trackitUser = trackitUserRepository.findByUserName(loginDto.getUserName());
         return "redirect:/view/configs?userId=" + trackitUser.getId();
     }
 }
