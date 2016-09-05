@@ -24,6 +24,7 @@ public class TrackitUserController {
 
         trackitUser.setEmail(createTrackitUserDto.getEmail());
         trackitUser.setUserName(createTrackitUserDto.getUserName());
+        trackitUser.setPassword(createTrackitUserDto.getPassword());
         trackitUserRepository.save(trackitUser);
     }
 }

@@ -34,7 +34,7 @@ public class UrlConfigControllerIntegrationTests extends ApplicationTests {
     @Before
     public void setUp() {
         trackitUserRepository.deleteAll();
-        trackitUser = new TrackitUserCreator("userName", trackitUserRepository).create();
+        trackitUser = new TrackitUserCreator("userName", "password", trackitUserRepository).create();
     }
 
     @Test
