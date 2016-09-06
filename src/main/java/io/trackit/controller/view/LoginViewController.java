@@ -28,6 +28,10 @@ public class LoginViewController {
     @GetMapping
     public String login(@ModelAttribute LoginDto loginDto, ModelMap modelMap) {
         TrackitUser trackitUser = trackitUserRepository.findByUserName(loginDto.getUserName());
-        return "redirect:/view/configs?userId=" + trackitUser.getId();
+        if(loginDto.getPassword().equals(trackitUser.getPassword())){
+            return "redirect:/view/configs?userId=" + trackitUser.getId();
+        } else {
+            return "home";
+        }
     }
 }

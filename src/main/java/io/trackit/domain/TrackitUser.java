@@ -7,6 +7,17 @@ import java.util.Set;
 @Entity
 public class TrackitUser {
 
+    public TrackitUser (TrackitUser trackitUser){
+        this.userName = trackitUser.getUserName();
+        this.id = trackitUser.getId();
+        this.password = trackitUser.getPassword();
+        this.email = trackitUser.getEmail();
+        this.urlConfigs = trackitUser.getUrlConfigs();
+    }
+
+    public TrackitUser (){
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -19,6 +30,8 @@ public class TrackitUser {
     @Size(min = 4, max = 20)
     private String password;
 
+    @OneToMany(mappedBy = "trackitUser", cascade = CascadeType.REMOVE)
+    private Set<UrlConfig> urlConfigs;
     public String getPassword() {
         return password;
     }
@@ -26,9 +39,6 @@ public class TrackitUser {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    @OneToMany(mappedBy = "trackitUser", cascade = CascadeType.REMOVE)
-    private Set<UrlConfig> urlConfigs;
 
     public Long getId() {
         return id;
