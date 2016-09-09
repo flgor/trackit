@@ -2,10 +2,11 @@ package io.trackit.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-public class TrackitUser {
+public class TrackitUser implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,6 +19,13 @@ public class TrackitUser {
 
     @Size(min = 4, max = 20)
     private String password;
+
+    public TrackitUser(TrackitUser trackitUser) {
+        this.userName = trackitUser.getUserName();
+        this.password = trackitUser.getPassword();
+        this.email = trackitUser.getEmail();
+        this.urlConfigs = trackitUser.getUrlConfigs();
+    }
 
     public String getPassword() {
         return password;
